@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Pagina di login-form</title>
+</head>
+
+<body>
+    <div class="col-3">
+        <form method="post" th:action="@{/type/new}" >
+            <h2>Registrazione</h2>
+            <div>
+                <label>Nome</label>
+                <input th:field="*{name}" type="text" />
+
+                <div th:if="${#fields.hasErrors('name')}">
+                    <span th:errors="*{name}" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <label>Cognome</label>
+                    <input th:field="*{surname}" type="text"/>
+    
+                    <div th:if="${#fields.hasErrors('surname')}">
+                        <span th:errors="*{surname}" class="text-danger"></span>
+                    </div>
+                </div>
+    
+                <div>
+                    <label>Password</label>
+                    <input th:field="*{password}" type="password"> 
+    
+                    <div th:if="${#fields.hasErrors('password')}">
+                        <span th:errors="*{password}" class="text-danger"></span>
+                    </div>
+                </div>
+    
+                <div>
+                    <input type="submit" value="Invia"/>
+                    <input type="reset" value="Cancella"/>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>
