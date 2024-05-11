@@ -9,12 +9,12 @@
 </head>
 
 <body>
+    <h2>Login</h2>
     <div class="col-3">
-        <form method="post" th:action="@{/type/login}">
-            <h2>Login</h2>
+        <form method="post" th:action="@{/type/login}" th:object="${userForm}">
             <div>
-                <label>Nome</label>
-                <input th:field="*{name}" type="text" />
+                <label>Nickname</label>
+                <input th:field="*{nickname}" type="text" />
 
                 <div th:if="${#fields.hasErrors('name')}">
                     <span th:errors="*{name}" class="text-danger"></span>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div>
-                    <input type="submit" value="Invia" />
+                    <input type="submit" value="Accedi" />
                     <input type="reset" value="Cancella" />
                 </div>
         </form>

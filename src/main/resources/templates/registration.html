@@ -11,7 +11,7 @@
 <body>
     <div class="col-3">
         <form method="post" th:action="@{/type/new}" >
-            <h2>Registrazione</h2>
+            <h2>Registrazione nuovo utente</h2>
             <div>
                 <label>Nome</label>
                 <input th:field="*{name}" type="text" />
@@ -28,6 +28,15 @@
                         <span th:errors="*{surname}" class="text-danger"></span>
                     </div>
                 </div>
+
+                <div>
+                    <label>Nickname</label>
+                    <input th:field="*{nickname}" type="text"/>
+    
+                    <div th:if="${#fields.hasErrors('nickname')}">
+                        <span th:errors="*{nickname}" class="text-danger"></span>
+                    </div>
+                </div>
     
                 <div>
                     <label>Password</label>
@@ -39,7 +48,7 @@
                 </div>
     
                 <div>
-                    <input type="submit" value="Invia"/>
+                    <input type="submit" value="Crea account"/>
                     <input type="reset" value="Cancella"/>
                 </div>
             </form>
